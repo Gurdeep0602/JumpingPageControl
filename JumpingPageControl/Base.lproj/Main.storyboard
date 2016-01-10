@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JumpingPageControl" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xQA-40-04e"/>
+                        <viewControllerLayoutGuide type="bottom" id="OeR-Xv-LfE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nh3-3K-F71">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gjr-nE-d8w">
+                                    <size key="itemSize" width="150" height="224"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="b1y-fy-Zrx">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBT-MI-p1I" customClass="JumpingPageControl" customModule="JumpingPageControl" customModuleProvider="target">
+                                <rect key="frame" x="160" y="493" width="280" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Laq-ZA-fLG"/>
+                                    <constraint firstAttribute="height" constant="55" id="cJq-5W-Tf1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentPage">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gap">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nh3-3K-F71" firstAttribute="top" secondItem="xQA-40-04e" secondAttribute="bottom" constant="-20" id="4hA-tQ-ib7"/>
+                            <constraint firstItem="BBT-MI-p1I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IQh-yr-7M5"/>
+                            <constraint firstAttribute="trailing" secondItem="nh3-3K-F71" secondAttribute="trailing" id="UUb-jW-uob"/>
+                            <constraint firstItem="OeR-Xv-LfE" firstAttribute="top" secondItem="nh3-3K-F71" secondAttribute="bottom" id="XwU-di-qCF"/>
+                            <constraint firstItem="BBT-MI-p1I" firstAttribute="top" secondItem="xQA-40-04e" secondAttribute="bottom" constant="473" id="ZJF-ee-xGi"/>
+                            <constraint firstItem="nh3-3K-F71" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iMU-8L-8tZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="colorCollection" destination="nh3-3K-F71" id="SVT-BH-nJp"/>
+                        <outlet property="pageControl" destination="BBT-MI-p1I" id="SBX-j1-5si"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="310"/>
+        </scene>
+    </scenes>
+</document>
