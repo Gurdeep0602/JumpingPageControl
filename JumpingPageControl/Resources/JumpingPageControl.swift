@@ -195,14 +195,18 @@ class JumpingPageControl: UIControl {
         
         guard let touchPoint = touch?.locationInView(self) else {   return  }
         
-        if touchPoint.x > currentPageIndicator.position.x + gap + indicatorRadius {
+        if touchPoint.x > currentPageIndicator.position.x + gap + indicatorRadius || (currentPage == numberOfPages && touchPoint.x > currentPageIndicator.position.x) {
         
             currentPage++
-        }
         
-        if touchPoint.x < currentPageIndicator.position.x - gap - indicatorRadius {
+        } else if touchPoint.x < currentPageIndicator.position.x - gap - indicatorRadius || (currentPage == 1 && touchPoint.x < currentPageIndicator.position.x) {
         
             currentPage--
+        
+        } else if touchPoint.x > currentPageIndicator.position.x - indicatorRadius && touchPoint.x < currentPageIndicator.position.x + indicatorRadius {
+        
+            let c = currentPage
+            currentPage = c
         }
         
         delegate?.jumpingPageControl?(self, manuallyUpdatedToCurrentPage: Int(currentPage))

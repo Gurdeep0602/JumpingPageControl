@@ -50,6 +50,5 @@ class CurrentPageIndicatorLayer : IndicatorLayer {
         self.cornerRadius = indicatorRadius
         self.bounds.size = CGSizeMake(indicatorRadius*2, indicatorRadius*2)
     }
-    
 }
 
