@@ -39,7 +39,9 @@ class ViewController: UIViewController, JumpingPageControlDelegate {
     func jumpingPageControl(jumpingPageControl : JumpingPageControl, manuallyUpdatedToCurrentPage currentPage : Int) {
     
         print("manuallyUpdatedCurrentPage : \(currentPage)")
-
+        
+        let idx = NSIndexPath(forItem: currentPage-1, inSection: 0)
+        colorCollection.scrollToItemAtIndexPath(idx, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,9 +60,10 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegateF
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("dummyCell", forIndexPath: indexPath) as! DummyCell
 
+        cell.titleLbl.text = "\(indexPath.row+1)"
+        
         return cell
     }
     
@@ -69,6 +72,11 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegateF
         let screensize = UIScreen.mainScreen().bounds
         return CGSizeMake(screensize.width, screensize.height)
     }
-
+    
 }
 
+class DummyCell : UICollectionViewCell {
+
+    @IBOutlet weak var titleLbl: UILabel!
+    
+}

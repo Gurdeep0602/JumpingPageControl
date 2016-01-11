@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -26,14 +27,31 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="b1y-fy-Zrx">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dummyCell" id="b1y-fy-Zrx" customClass="DummyCell" customModule="JumpingPageControl" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZH-nI-D46">
+                                                    <rect key="frame" x="8" y="8" width="134" height="208"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="tZH-nI-D46" firstAttribute="top" secondItem="b1y-fy-Zrx" secondAttribute="topMargin" id="24L-KT-ztX"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="tZH-nI-D46" secondAttribute="bottom" id="5rg-Gf-D8d"/>
+                                            <constraint firstItem="tZH-nI-D46" firstAttribute="leading" secondItem="b1y-fy-Zrx" secondAttribute="leadingMargin" id="SrE-MA-OCR"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="tZH-nI-D46" secondAttribute="trailing" id="fHM-fd-O0g"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="titleLbl" destination="tZH-nI-D46" id="end-eC-0Aq"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

@@ -14,7 +14,6 @@
 		CA9513801C41B7B30099B134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA95137E1C41B7B30099B134 /* LaunchScreen.storyboard */; };
 		CAF7BC0E1C42F5E000101FC7 /* IndicatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7BC0C1C42F5E000101FC7 /* IndicatorLayer.swift */; };
 		CAF7BC0F1C42F5E000101FC7 /* JumpingPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7BC0D1C42F5E000101FC7 /* JumpingPageControl.swift */; };
-		CAF8BD551C42C641008FB1B4 /* UIColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF8BD541C42C641008FB1B4 /* UIColor+Random.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		CA9513811C41B7B30099B134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAF7BC0C1C42F5E000101FC7 /* IndicatorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorLayer.swift; sourceTree = "<group>"; };
 		CAF7BC0D1C42F5E000101FC7 /* JumpingPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpingPageControl.swift; sourceTree = "<group>"; };
-		CAF8BD541C42C641008FB1B4 /* UIColor+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 				CAF7BC0B1C42F5E000101FC7 /* Resources */,
 				CA9513751C41B7B30099B134 /* AppDelegate.swift */,
 				CA9513771C41B7B30099B134 /* ViewController.swift */,
-				CAF8BD541C42C641008FB1B4 /* UIColor+Random.swift */,
 				CA9513791C41B7B30099B134 /* Main.storyboard */,
 				CA95137C1C41B7B30099B134 /* Assets.xcassets */,
 				CA95137E1C41B7B30099B134 /* LaunchScreen.storyboard */,
@@ -152,7 +149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAF8BD551C42C641008FB1B4 /* UIColor+Random.swift in Sources */,
 				CAF7BC0E1C42F5E000101FC7 /* IndicatorLayer.swift in Sources */,
 				CAF7BC0F1C42F5E000101FC7 /* JumpingPageControl.swift in Sources */,
 				CA9513781C41B7B30099B134 /* ViewController.swift in Sources */,

@@ -69,7 +69,7 @@ class JumpingPageControl: UIControl {
                 
                 currentPageIndicator.removeAllAnimations()
             
-            } else {
+            } else if oldPosition.x > 0 {
                 
                 let path = UIBezierPath()
                 path.moveToPoint(oldPosition)
@@ -153,7 +153,6 @@ class JumpingPageControl: UIControl {
         
         currentPageIndicator.frame = CGRectZero
         self.layer.addSublayer(currentPageIndicator)
-        
         self.clipsToBounds = false
     }
     
