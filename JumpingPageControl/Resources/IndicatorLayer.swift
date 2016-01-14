@@ -31,7 +31,7 @@ class PageIndicatorLayer: IndicatorLayer {
         self.cornerRadius = indicatorRadius
         self.bounds.size = CGSizeMake(indicatorRadius*2, indicatorRadius*2)
 
-        self.transform = CATransform3DMakeScale(0.85, 0.85, 1.0)
+        self.transform = CATransform3DMakeScale(0.9, 0.9, 1.0)
     
     }
     

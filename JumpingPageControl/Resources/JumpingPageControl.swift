@@ -8,19 +8,18 @@
 
 import UIKit
 
-@objc protocol JumpingPageControlDelegate {
-
-   optional func jumpingPageControl(jumpingPageControl : JumpingPageControl, manuallyUpdatedToCurrentPage currentPage : Int)
-}
-
 @IBDesignable
 class JumpingPageControl: UIControl {
     
     @IBInspectable var animationEnabled : Bool = true
     
-    @IBInspectable var numberOfPages : UInt = 3 {
+    @IBInspectable var numberOfPages : Int = 3 {
         
         didSet {
+            
+            if numberOfPages < 0 {
+                numberOfPages = 0
+            }
             
             for pageIndicator in pageIndicators {
                 pageIndicator.removeFromSuperlayer()
@@ -45,21 +44,21 @@ class JumpingPageControl: UIControl {
         }
     }
     
-    @IBInspectable var currentPage : UInt = 1 {
+    @IBInspectable var currentPage : Int = 1 {
         
         didSet {
     
-            if currentPage > numberOfPages {
-                currentPage = numberOfPages
+            if currentPage > numberOfPages-1 {
+                currentPage = numberOfPages-1
             
-            } else if currentPage < 1 {
-                currentPage = 1
+            } else if currentPage < 0 {
+                currentPage = 0
             }
             
             let yPosition : CGFloat = self.layer.bounds.height/2
             
-            let oldPosition = pageIndicators[Int(oldValue-1)].position
-            let newPosition = pageIndicators[Int(currentPage-1)].position
+            let oldPosition = pageIndicators[oldValue].position
+            let newPosition = pageIndicators[currentPage].position
             
             let p = CGPointMake((oldPosition.x+newPosition.x)/2, yPosition-40)
         
@@ -134,8 +133,6 @@ class JumpingPageControl: UIControl {
         }
     }
     
-    var delegate : JumpingPageControlDelegate?
-    
     private var pageIndicators = [PageIndicatorLayer]()
     private var currentPageIndicator = CurrentPageIndicatorLayer()
     
@@ -183,7 +180,7 @@ class JumpingPageControl: UIControl {
         }
         
         if pageIndicators.count > 0 {
-            currentPageIndicator.position = pageIndicators[Int(currentPage-1)].position
+            currentPageIndicator.position = pageIndicators[currentPage].position
         }
         
         currentPageIndicator.setNeedsLayout()
@@ -195,21 +192,14 @@ class JumpingPageControl: UIControl {
         
         guard let touchPoint = touch?.locationInView(self) else {   return  }
         
-        if touchPoint.x > currentPageIndicator.position.x + gap + indicatorRadius || (currentPage == numberOfPages && touchPoint.x > currentPageIndicator.position.x) {
+        if touchPoint.x > currentPageIndicator.position.x + gap + indicatorRadius || (currentPage == numberOfPages-1 && touchPoint.x > currentPageIndicator.position.x) {
         
-            currentPage++
+            currentPage = currentPage == numberOfPages-1 ? numberOfPages-1 : (currentPage+1)
         
-        } else if touchPoint.x < currentPageIndicator.position.x - gap - indicatorRadius || (currentPage == 1 && touchPoint.x < currentPageIndicator.position.x) {
+        } else if touchPoint.x < currentPageIndicator.position.x - gap - indicatorRadius || (currentPage == 0 && touchPoint.x < currentPageIndicator.position.x) {
         
-            currentPage--
-        
-        } else if touchPoint.x > currentPageIndicator.position.x - indicatorRadius && touchPoint.x < currentPageIndicator.position.x + indicatorRadius {
-        
-            let c = currentPage
-            currentPage = c
+            currentPage = currentPage == 0 ? 0 : (currentPage-1)
         }
-        
-        delegate?.jumpingPageControl?(self, manuallyUpdatedToCurrentPage: Int(currentPage))
     }
     
 }

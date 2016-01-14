@@ -8,9 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, JumpingPageControlDelegate {
-
-    @IBOutlet weak var pageControl: JumpingPageControl!
+class ViewController: UIViewController {
     
     @IBOutlet weak var colorCollection: UICollectionView!
     
@@ -23,25 +21,7 @@ class ViewController: UIViewController, JumpingPageControlDelegate {
         
         colorCollection.dataSource = self
         colorCollection.delegate = self
-    
-        pageControl.currentPage = 1
-    
-        pageControl.addTarget(self, action: "dummyFunc:", forControlEvents: UIControlEvents.ValueChanged)
-        pageControl.delegate = self
         
-    }
-
-    func dummyFunc(pageControl : JumpingPageControl) {
-    
-        print("pageControl.currentPage : \(pageControl.currentPage)")
-    }
-    
-    func jumpingPageControl(jumpingPageControl : JumpingPageControl, manuallyUpdatedToCurrentPage currentPage : Int) {
-    
-        print("manuallyUpdatedCurrentPage : \(currentPage)")
-        
-        let idx = NSIndexPath(forItem: currentPage-1, inSection: 0)
-        colorCollection.scrollToItemAtIndexPath(idx, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +35,7 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegateF
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
-        return Int(pageControl.numberOfPages)
+        return 6
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

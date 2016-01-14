@@ -55,25 +55,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBT-MI-p1I" customClass="JumpingPageControl" customModule="JumpingPageControl" customModuleProvider="target">
-                                <rect key="frame" x="160" y="493" width="280" height="55"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vea-BL-hpX" customClass="JumpingPageControl" customModule="JumpingPageControl" customModuleProvider="target">
+                                <rect key="frame" x="20" y="119" width="275" height="43"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="Laq-ZA-fLG"/>
-                                    <constraint firstAttribute="height" constant="55" id="cJq-5W-Tf1"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="currentPage">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="gap">
-                                        <real key="value" value="20"/>
+                                        <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="indicatorRadius">
-                                        <real key="value" value="8"/>
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gap">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentPage">
+                                        <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -81,21 +77,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nh3-3K-F71" firstAttribute="top" secondItem="xQA-40-04e" secondAttribute="bottom" constant="-20" id="4hA-tQ-ib7"/>
-                            <constraint firstItem="BBT-MI-p1I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IQh-yr-7M5"/>
                             <constraint firstAttribute="trailing" secondItem="nh3-3K-F71" secondAttribute="trailing" id="UUb-jW-uob"/>
                             <constraint firstItem="OeR-Xv-LfE" firstAttribute="top" secondItem="nh3-3K-F71" secondAttribute="bottom" id="XwU-di-qCF"/>
-                            <constraint firstItem="BBT-MI-p1I" firstAttribute="top" secondItem="xQA-40-04e" secondAttribute="bottom" constant="473" id="ZJF-ee-xGi"/>
                             <constraint firstItem="nh3-3K-F71" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iMU-8L-8tZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="colorCollection" destination="nh3-3K-F71" id="SVT-BH-nJp"/>
-                        <outlet property="pageControl" destination="BBT-MI-p1I" id="SBX-j1-5si"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279" y="310"/>
+            <point key="canvasLocation" x="-95" y="280"/>
         </scene>
     </scenes>
 </document>
